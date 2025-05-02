@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¡Felicidades!</title>
+
+  <!-- Fuente formal -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+      background-image: url('/background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 15px;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    #codeBox {
+      font-size: 20px;
+      background-color: #fff;
+      color: #181c31;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 10px 0;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #253638;
+      color: white;
+      transition: all 0.3s ease;
+      font-family: 'Playfair Display', serif;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Botón dinámico con flores */
+    #nextBtn {
+      background-color: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #nextBtn::after {
+      content: " 🌸🌼🌺";
+      position: absolute;
+      right: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: slideFlowers 2.5s infinite linear;
+      font-size: 20px;
+    }
+
+    @keyframes slideFlowers {
+      0% {
+        right: -60px;
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      60% {
+        right: 10px;
+        opacity: 1;
+      }
+      100% {
+        right: 100%;
+        opacity: 0;
+      }
+    }
+
+    #nextBtn:hover {
+      background-color: #000000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>¡Ganaste, mi amor!</h1>
+  <p>Este es tu código especial. Cópialo y mándamelo 💌 Recuerda mandarme también la captura de la victoria</p>
+  <div id="codeBox">...</div><br>
+  <button onclick="generateCode()">Generar código</button>
+  <button onclick="copyCode()">Copiar código</button>
+
+  <p style="margin-top: 30px;">Y como premio... tienes un regalo muy especial 🌹</p>
+  <p>Un ramo de flores azules, igual de únicas y hermosas como tú. 💙</p>
+
+  <div class="button">
+    <button class="botones">
+        <a href="flores.html" style="color: #fff;">¡Presiona aqui!</a>
+    </button>
+
+  <div style="margin-top: 40px; background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px;">
+    <h2 style="color: #0550f3;">Para mi preciosa Valeria 💖</h2>
+    <p style="color: #f0f0f0; font-style: italic;">
+      Aunque la distancia nos separe físicamente, mi amor por ti no conoce fronteras. Cada día pienso en tu sonrisa, en tu voz, en lo mucho que me haces falta y lo feliz que me haces con solo existir.
+    </p>
+    <p style="color: #f0f0f0; font-style: italic;">
+      Este jueguito, este detalle, cada cosa que hago es solo una pequeña parte de todo lo que siento por ti. Me haces querer ser mejor, esperar con ansias cada videollamada, y soñar con el día en que estemos juntos sin despedidas.
+    </p>
+    <p style="color: #f0f0f0; font-style: italic;">
+      Gracias por amarme desde lejos con tanta fuerza. Eres mi flor azul, única y perfecta. ✨
+    </p>
+    <p style="color: #f0f0f0; font-style: italic;">
+      Te amo con todo mi corazón. Siempre tuyo, desde cualquier lugar del mundo. 💙
+    </p>
+  </div>
+</div>
+
+<script>
+  function generateCode() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let code = '';
+    for (let i = 0; i < 8; i++) {
+      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById('codeBox').textContent = code;
+  }
+
+  function copyCode() {
+    const code = document.getElementById('codeBox').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      alert('Código copiado 💖');
+    });
+  }
+</script>
+
+</body>
+</html>

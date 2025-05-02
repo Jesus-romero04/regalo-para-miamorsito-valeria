@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyGirlfriend</title>
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./stylepremium.css">
+  <style>
+    .prev, .next {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <a id="nextBtn" href="/intro.html" class="top-left-button">Siguiente</a>
+  <div class="box">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="prev">&lt;</div>
+    <div class="next">&gt;</div>
+  </div>
+  <div class="nav">
+    <ul>
+      <li data-id="1"  data-name="zcy">Galeria de sus mascotas CLICK</li>
+      <li class="active" data-id="2" data-name="xl">Galeria de fotos de mi reyna DAR CLICK</li>
+    </ul>
+  </div>
+  <div class="waterfall"></div>
+
+  <script>
+    const waterfall = document.querySelector('.waterfall');
+    const imgWidth = 220;
+  
+    function creatImg(name, count = 10, format = '.webp') {
+      waterfall.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        const img = document.createElement('img');
+        const div = document.createElement('div');
+        div.classList.add('waterfallBox');
+        img.src = `./images/${name}/${10000 + i + 1}${format}`;
+        div.appendChild(img);
+        waterfall.appendChild(div);
+        img.addEventListener('load', layout);
+      }
+    }
+  
+    function layout() {
+      const getinfo = () => {
+        let waterfallWidth = waterfall.offsetWidth;
+        let column = Math.floor(waterfallWidth / imgWidth);
+        let gapCount = column - 1;
+        let freeSpace = waterfallWidth - imgWidth * column;
+        let gap = freeSpace / gapCount;
+        return { gap, column };
+      };
+  
+      const info = getinfo();
+      let nextTop = new Array(info.column).fill(0);
+  
+      const getMinTop = (arr) => {
+        let min = arr[0], index = 0;
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] < min) {
+            min = arr[i];
+            index = i;
+          }
+        }
+        return { min, index };
+      };
+  
+      const getMaxTop = (arr) => Math.max(...arr);
+  
+      for (let i = 0; i < waterfall.children.length; i++) {
+        const box = waterfall.children[i];
+        const { min, index } = getMinTop(nextTop);
+        box.style.left = `${index * (imgWidth + info.gap)}px`;
+        box.style.top = `${min + info.gap / 2}px`;
+        nextTop[index] += box.offsetHeight + info.gap / 2;
+        box.children[0].style.opacity = 1;
+      }
+  
+      waterfall.style.height = `${getMaxTop(nextTop)}px`;
+    }
+  
+    // Manejo de clics en nav
+    const nav = document.querySelector('.nav ul');
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'LI') {
+        document.querySelector('.nav ul li.active')?.classList.remove('active');
+        e.target.classList.add('active');
+  
+        const name = e.target.dataset.name;
+  
+        if (name === 'zcy') {
+          creatImg('zcy', 9, '.webp');
+        } else if (name === 'xl') {
+          creatImg('xl', 36, '.jpg');
+        }
+      }
+    });
+  
+    // Activar el primer nav al cargar
+    document.querySelector('.nav ul li.active')?.click();
+  
+    window.addEventListener('resize', layout);
+  </script>
+</body>
+
+</html>

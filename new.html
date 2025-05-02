@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>untoldcoding</title>
+  <style>
+    body {
+      font-style: Arial;
+      background: black;
+    }
+
+    .animation-box {
+      width: 75%;
+      height: 27.5rem;
+      background-color: rgb(0, 0, 0);
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .animation-container {
+      width: 1000rem;
+      height: 30rem;
+    }
+
+    .first-text {
+      font-size: 4.4rem;
+      position: absolute;
+      left: 2.5rem;
+      top: 5rem;
+      opacity: 0;
+      animation-name: topFadeOut;
+      animation-duration: 3s;
+      color: white;
+    }
+
+    .second-text {
+      font-size: 3.4rem;
+      position: absolute;
+      top: 8.5rem;
+      opacity: 0;
+      animation-name: rightFadeInOut;
+      animation-delay: 3s;
+      animation-duration: 4s;
+      color: #ccc;
+    }
+
+    .third-text {
+      font-size: 4.4rem;
+      position: absolute;
+      left: 2.5rem;
+      top: 5rem;
+      opacity: 0;
+      animation-name: rightFadeInOut;
+      animation-delay: 6s;
+      animation-duration: 5s;
+      color: #a3ddf0;
+    }
+
+    .fourth-text {
+      font-size: 3.4rem;
+      position: absolute;
+      top: 10.5rem;
+      left: 10%;
+      opacity: 0;
+      color: #f0a3be;
+      animation-name: fadeInOut;
+      animation-delay: 10s;
+      animation-duration: 8s;
+    }
+
+    .fifth-text {
+      font-size: 5rem;
+      position: absolute;
+      left: 5%;
+      bottom: 25%;
+      opacity: 0;
+      color: #f0eba3;
+      animation-name: bottomFadeOut;
+      animation-delay: 16s;
+      animation-duration: 9s;
+    }
+
+    .sixth-text {
+      font-size: 4rem;
+      position: absolute;
+      left: 3rem;
+      bottom: 20%;
+      opacity: 0;
+      color: #b4f0a3;
+      animation-name: fadeInOut;
+      animation-delay: 25s;
+      animation-duration: 6s;
+    }
+
+    .seventh-text {
+      font-size: 3.6rem;
+      position: absolute;
+      top: 12rem;
+      left: 5%;
+      opacity: 0;
+      color: #f0a3d1;
+      animation-name: topFadeOut;
+      animation-delay: 31s;
+      animation-duration: 5s;
+    }
+
+    .eighth-text {
+      font-size: 4.2rem;
+      position: absolute;
+      right: 2rem;
+      bottom: 15%;
+      opacity: 0;
+      color: #a3f0f0;
+      animation-name: rightFadeInOut;
+      animation-delay: 36s;
+      animation-duration: 6s;
+    }
+
+    .ninth-text {
+      font-size: 3.8rem;
+      position: absolute;
+      left: 4rem;
+      top: 7rem;
+      opacity: 0;
+      color: #f0c6a3;
+      animation-name: fadeInOut;
+      animation-delay: 42s;
+      animation-duration: 6s;
+    }
+
+    .tenth-text {
+      font-size: 4.4rem;
+      position: absolute;
+      top: 5rem;
+      right: 5%;
+      opacity: 0;
+      color: #d1a3f0;
+      animation-name: rightFadeInOut;
+      animation-delay: 48s;
+      animation-duration: 6s;
+    }
+
+    .eleventh-text {
+      font-size: 4rem;
+      position: absolute;
+      bottom: 10%;
+      left: 8%;
+      opacity: 0;
+      color: #a3f0b9;
+      animation-name: bottomFadeOut;
+      animation-delay: 54s;
+      animation-duration: 6s;
+    }
+
+    .twelfth-text {
+      font-size: 4.2rem;
+      position: absolute;
+      top: 13rem;
+      right: 10%;
+      opacity: 0;
+      color: #f0a3a3;
+      animation-name: topFadeOut;
+      animation-delay: 60s;
+      animation-duration: 7s;
+    }
+
+
+    @keyframes topFadeOut {
+      0% {
+        position: absolute;
+        top: -3rem;
+        opacity: 0;
+      }
+      75% {
+        position: absolute;
+        top: 25%;
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes bottomFadeOut {
+      0% {
+        position: absolute;
+        bottom: -5rem;
+        opacity: 0;
+      }
+      75% {
+        position: absolute;
+        bottom: 25%;
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes topFadeOutVertical {
+      0% {
+        position: absolute;
+        top: -3rem;
+        opacity: 0;
+      }
+      75% {
+        position: absolute;
+        top: 45%;
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes rightFadeInOut {
+      0% {
+        position: absolute;
+        right: -3rem;
+        opacity: 0;
+      }
+      75% {
+        position: absolute;
+        right: 10rem;
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        right: 10rem;
+      }
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      45% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0%;
+      }
+    }
+
+    /* Estilo del botón */
+    .button a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff8c94;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button a:hover {
+      background-color: #ff6578;
+    }
+  </style>
+</head>
+<body>
+  <section class="animation-box">
+    <div class="first-text">Cuando estoy contigo todo se siente mucho mejor y mas bonito.</div>
+    <div class="second-text">Mi parte favorita del dia es pasar tiempo contigo mi bebe.</div>
+    <div class="third-text">Me encanta cuando te comportas como bebita.</div>
+    <div class="fourth-text">Eres mi lugar seguro,gracias por existir y hacer mi mundo tan bonito.</div>
+    <div class="fifth-text">Eres el mayor regalo que me dio la vida mi reina y siempre sera asi.</div>
+    <div class="sixth-text">Cada segundo contigo es un pedacito de cielo, mi amor.</div>
+    <div class="seventh-text">Tu sonrisa tiene el poder de calmar todos mis miedos.</div>
+    <div class="eighth-text">Contigo aprendí que el amor verdadero sí existe.</div>
+    <div class="ninth-text">Me haces sentir amado, cuidado y profundamente feliz.</div>
+    <div class="tenth-text">Si pudiera elegir mil veces, siempre te elegiría a ti.</div>
+    <div class="eleventh-text">Así como cada imagen captura tu belleza única, cada momento contigo se graba en mi corazón</div>
+    <div class="twelfth-text">Haz clic siguiente para ver cómo el mundo ve la maravilla que eres.</div>
+
+
+
+    <!-- Botón de Siguiente -->
+    <div class="button">
+      <a href="/homme.html">Siguiente</a>
+    </div>
+  </section>
+</body>
+</html>

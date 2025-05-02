@@ -1,0 +1,79 @@
+/* 中间导航栏布局 */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  font-family: sans-serif;
+}
+
+.top-left-button {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 10px 20px;
+  background-color: #ff8c94;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.top-left-button:hover {
+  background-color: #ff6578;
+}
+
+
+.nav {
+  display: flex;
+  width: 80%;
+  margin: 25px auto;
+  justify-content: center;
+}
+
+.nav ul li {
+  float: left;
+  margin: 0 25px;
+  border-bottom: 4.1px solid transparent;
+  font-weight: 700;
+  font-size: 20px;
+  color: antiquewhite;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+/* 下划线样式 */
+.nav ul li.active {
+  border-bottom: 4.1px solid rgb(252, 96, 96);
+  color: antiquewhite;
+}
+
+/* 瀑布流布局 */
+.waterfall {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.waterfall .waterfallBox {
+  overflow: hidden;
+  position: absolute;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.waterfall img {
+  vertical-align: middle;
+  opacity: 0;
+  width: 220px;
+  transform: scale(0.95);
+  transition: all 0.5s;
+}
+
+.waterfall img:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro del Juego</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(/background.jpg);
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .jueguito {
+            background-image: url(/background.jpg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 32px;
+            color: #ffffff;
+        }
+        p {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        #nextBtn {
+            display: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #2e37ad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #nextBtn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="jueguito">
+    <h1>¡Bienvenido al Juego!</h1>
+    <p>Recuerda: ¡Debes ganar para poder continuar al siguiente nivel!</p>
+    <p>¡Ojo, hay un premio! Debes enviarme una captura de pantalla si logras pasarlo.  
+    ¡Buena suerte, miamorsito! :3</p>
+    <button id="nextBtn">Siguiente</button>
+</div>
+
+<script>
+    // Función que muestra el botón "Siguiente" cuando el jugador gane
+    window.onload = function() {
+        alert("¡Tienes que ganar para poder continuar al siguiente paso!");
+        document.getElementById("nextBtn").style.display = "block"; // Muestra el botón
+    }
+
+    // Agregar evento de clic al botón para redirigir a la siguiente página
+    document.getElementById("nextBtn").onclick = function() {
+        window.location.href = "./juego.html"; // Redirige a la página juego.html
+    }
+</script>
+
+</body>
+</html>

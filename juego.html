@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Campanita Salva el Mundo!</title>
+    <link rel="stylesheet" href="/juego.css">
+</head>
+<body>
+    <div class="button">
+        <a href="/intro3.html">
+          <button>Siguiente</button>
+        </a>
+        <h2 class="subtitulo">Acuerdate de mandarme la captura :3 /toca siguiente/</h2>
+      </div>
+    <div class="container">
+        <h1 class="titulo">Campanita salva el MUNDO 💩</h1>
+        <div class="info">
+            <span >Objetivo: <span id="objetivo">12</span></span>
+            <div>
+                <span id="text-score">Aliens eliminados: </span><span id="toxicas-eliminadas">0</span>
+            </div>
+        </div>
+        <div class="menu">
+            <h2 id="title">GAME</h2>
+            <button id="btn-play">PLAY GAME</button>
+        </div>
+        <canvas id="canvas"></canvas>
+        <div class="controls">
+            <div class="arrows">
+                <ion-icon id="arrow-left" name="arrow-back-circle-outline"></ion-icon>
+                <ion-icon id="arrow-right" name="arrow-forward-circle-outline"></ion-icon>
+            </div>
+            <div class="heart">
+                <ion-icon id="heart-icon" name="heart-circle-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="instructions">
+            <span>
+                Usa las letras A y D para moverte y la letra W para disparar.
+            </span>
+            <span class="instructions">
+                ¡Debes derrotar a 12 aliens con 💩 para que campanita salve el mundo!.
+            </span>
+        </div>
+    </div>
+    <audio id="cancion" autoplay loop style="display:none;"></audio>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/juego.js"></script>
+</body>
+</html>
