@@ -19,6 +19,9 @@ const menu = document.querySelector(".menu");
 const btnPlay = document.getElementById("btn-play");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const sonidoDisparo = new Audio("./sound/pedos.mp3");
+const sonidoVictoria = new Audio("sounds/victoria.mp3");
+const sonidoDerrota = new Audio("sounds/derrota.mp3");
 const background = new Image();
 background.src = '/background.jpg';
 let backgroundOnload = false;
@@ -208,6 +211,7 @@ class Player{
                         y:this.position.y-15
                     })
                 );
+                sonidoDisparo.play(); // <-- Agrega esto aquí
                 this.keys.shoot = false;
             }
         });
@@ -232,6 +236,10 @@ class Player{
                         y:this.position.y-15
                     })
                 );
+                    // Reinicia la posición y reproduce el sonido
+                   sonidoDisparo.currentTime = 0; 
+                   sonidoDisparo.play(); 
+                   this.keys.shoot = false;
                 heart.style.fontSize = "75px";
                 setTimeout(()=>{
                     heart.style.fontSize = "60px";

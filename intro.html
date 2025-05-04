@@ -9,7 +9,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: radial-gradient(ellipse at bottom, #00adf1 0%, #1a2627 100%);
+      background: radial-gradient(ellipse at bottom, #0649ad 0%, #1a2627 100%);
       font-family: 'Dancing Script', cursive;
       height: 100vh;
       display: flex;
@@ -33,7 +33,7 @@
 
     a {
       text-decoration: none;
-      background-color: #2e47b6;
+      background-color: #0400ff;
       color: white;
       padding: 12px 24px;
       border-radius: 30px;
@@ -70,11 +70,16 @@
   </style>
 </head>
 <body>
+  <audio autoplay loop src="sound/sonido estrellas.mp3" autoplay></audio>
+
   <h1>✨ Tengo algo brillante para ti ✨</h1>
   <p>Un corazón que late por ti…<br> pero antes, deja que el cielo te abrace con su magia.</p>
-  <a href="corazon.html">Ver el corazón 💓</a>
+  <a href="./corazon.html">Ver el corazón 💓</a>
 
   <script>
+
+var audio = document.querySelector("audio");
+audio.volume = 0.3; // Baja el volumen al 30%
     // Crear estrellas flotantes
     for (let i = 0; i < 40; i++) {
       const star = document.createElement('div');

@@ -22,8 +22,8 @@ var lyricsData = [
   { text: "Para mí, el tiempo que pasamos juntos significa mucho,", time: 118,  },
   { text: "así que quizás planear más momentos donde solo estemos los dos,", time: 122, },
   { text: "sin distracciones, ni nada…donde solo existamos los dos…", time: 129,  },
-  { text: "¿Si tuvieras que elegir una parte de mi cuerpo cual seria?", time: 135, className: "line7" },
-  { text: " miamor me gusta demasiado tu carita ", time: 142, },
+  { text: "¿Si tuvieras que elegir una parte de tu cuerpo cual seria?", time: 135, className: "line7" },
+  { text: " miamor me gusta demasiado tu hermosa carita :3 ", time: 142, },
   { text: "me gustaria besar,mimar y acariciarte mientras duermes", time: 150,  },
   { text: "¿Que es lo que mas me gusta de ti?", time: 158, className: "line8" },
   { text: "Me encanta cómo siempre estás ahí para mí, apoyándome y escuchándome.", time: 163,  },
@@ -32,7 +32,7 @@ var lyricsData = [
   { text: "Si pudieras estar conmigo por un día, ¿qué harías?", time: 182, className: "line10" },
   { text: "Pasaría el día divirtiendome, riendo y creando recuerdos, solo nosotros dos", time: 188,  },
   { text: "o en una playa sin nadie. Solo tú y yo, alejados del mundo", time: 192,  },
-  { text: "TE AMO, Y NO IMPORTA EL TIEMPO NI LA DISTANCIA, SIEMPRE TE LLEVARÉ EN MI CORAZÓN...", time: 200,},
+  { text: "💙 TE AMO, Y NO IMPORTA EL TIEMPO NI LA DISTANCIA, SIEMPRE TE LLEVARÉ EN MI CORAZÓN VALERIA 💙...", time: 200,},
 ];
 
 function updateLyrics() {

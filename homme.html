@@ -11,11 +11,32 @@
     .prev, .next {
       display: none !important;
     }
+    .romantic-message {
+    margin-top: 40px;
+    padding: 25px;
+    background: linear-gradient(135deg, #d0eaff, #f5d0ff);
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 2s ease;
+  }
+
+  .romantic-message p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3e3e3e;
+    margin: 0;
+  }
   </style>
 </head>
 
 <body>
-  <a id="nextBtn" href="/intro.html" class="top-left-button">Siguiente</a>
+  <audio src="sound/Mac Miller - Congratulations (Feat. Bilal)  (Sub. Español).mp3" autoplay></audio>
+  <a id="nextBtn" href="./intro.html" class="top-left-button">Siguiente</a>
   <div class="box">
     <ul>
       <li></li>
@@ -30,11 +51,20 @@
   </div>
   <div class="nav">
     <ul>
-      <li data-id="1"  data-name="zcy">Galeria de sus mascotas CLICK</li>
-      <li class="active" data-id="2" data-name="xl">Galeria de fotos de mi reyna DAR CLICK</li>
+      <li data-id="1"  data-name="zcy">Galeria de Sally y campanita CLICK</li>
+      <li class="active" data-id="2" data-name="xl">Galeria de fotos de mi reyna hermosa</li>
     </ul>
   </div>
   <div class="waterfall"></div>
+  
+  <!-- Texto lindo debajo de las imágenes -->
+  <div id="mensaje-amor" class="romantic-message" style="display: none;">
+    <p>💙 No hay cielo más azul que cuando estás conmigo. Tus fotos no solo capturan tu belleza, capturan mi felicidad. Sos mi lugar seguro, mi alegría, mi amor eterno💙</p>
+  </div>
+
+  <div id="mensaje-mascotas" class="romantic-message" style="display: none;">
+    <p>🐶🐱 Ustedes no solo son sus mascotas, son parte de su corazón... y por eso también son parte del mío. Gracias por cuidarla, por hacerla reír y por estar ahí siempre. 🐾</p>
+  </div>
 
   <script>
     const waterfall = document.querySelector('.waterfall');
@@ -102,8 +132,12 @@
   
         if (name === 'zcy') {
           creatImg('zcy', 9, '.webp');
+          document.getElementById('mensaje-mascotas').style.display = 'block';
+          document.getElementById('mensaje-amor').style.display = 'none';
         } else if (name === 'xl') {
-          creatImg('xl', 36, '.jpg');
+          creatImg('xl', 38, '.jpg');
+          document.getElementById('mensaje-mascotas').style.display = 'none';
+          document.getElementById('mensaje-amor').style.display = 'block';
         }
       }
     });
