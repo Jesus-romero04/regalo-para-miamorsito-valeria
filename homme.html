@@ -1,63 +1,107 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MyGirlfriend</title>
   <link rel="stylesheet" href="./base.css">
   <link rel="stylesheet" href="./stylepremium.css">
   <style>
+    body {
+      background-color: #a2d4f5;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     .prev, .next {
       display: none !important;
     }
-    .romantic-message {
-    margin-top: 40px;
-    padding: 25px;
-    background: linear-gradient(135deg, #d0eaff, #f5d0ff);
-    border-radius: 20px;
-    text-align: center;
-    font-family: 'Georgia', serif;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeInUp 2s ease;
-  }
 
-  .romantic-message p {
-    font-size: 20px;
-    font-weight: bold;
-    color: #3e3e3e;
-    margin: 0;
-  }
+    .romantic-message {
+      margin-top: 40px;
+      padding: 25px;
+      background: linear-gradient(135deg, #d0eaff, #f5d0ff);
+      border-radius: 20px;
+      text-align: center;
+      font-family: 'Georgia', serif;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 2s ease;
+    }
+
+    .romantic-message p {
+      font-size: 20px;
+      font-weight: bold;
+      color: #3e3e3e;
+      margin: 0;
+    }
+
+    .nav {
+      padding: 10px 15px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    .nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav li {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 2px solid #3498db;
+      color: #0a3d62;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      background-color: transparent; /* fondo transparente */
+      white-space: nowrap;
+    }
+
+    .nav li:hover {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    .nav li.active {
+      background-color: #2980b9;
+      color: #fff;
+      box-shadow: 0 0 10px #2980b9;
+    }
   </style>
 </head>
-
 <body>
   <audio src="sound/Mac Miller - Congratulations (Feat. Bilal)  (Sub. Español).mp3" autoplay></audio>
   <a id="nextBtn" href="./intro.html" class="top-left-button">Siguiente</a>
+
   <div class="box">
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li></li><li></li><li></li><li></li><li></li><li></li>
     </ul>
     <div class="prev">&lt;</div>
     <div class="next">&gt;</div>
   </div>
+
   <div class="nav">
     <ul>
-      <li data-id="1"  data-name="zcy">Galeria de Sally y campanita CLICK</li>
-      <li class="active" data-id="2" data-name="xl">Galeria de fotos de mi reyna hermosa</li>
+      <li data-id="1" data-name="zcy">Galería de Sally y Campanita 🐾</li>
+      <li class="active" data-id="2" data-name="xl">Galería de mi reina hermosa 💖</li>
     </ul>
   </div>
+
   <div class="waterfall"></div>
-  
-  <!-- Texto lindo debajo de las imágenes -->
+
   <div id="mensaje-amor" class="romantic-message" style="display: none;">
     <p>💙 No hay cielo más azul que cuando estás conmigo. Tus fotos no solo capturan tu belleza, capturan mi felicidad. Sos mi lugar seguro, mi alegría, mi amor eterno💙</p>
   </div>
@@ -69,7 +113,7 @@
   <script>
     const waterfall = document.querySelector('.waterfall');
     const imgWidth = 220;
-  
+
     function creatImg(name, count = 10, format = '.webp') {
       waterfall.innerHTML = '';
       for (let i = 0; i < count; i++) {
@@ -82,7 +126,7 @@
         img.addEventListener('load', layout);
       }
     }
-  
+
     function layout() {
       const getinfo = () => {
         let waterfallWidth = waterfall.offsetWidth;
@@ -92,10 +136,10 @@
         let gap = freeSpace / gapCount;
         return { gap, column };
       };
-  
+
       const info = getinfo();
       let nextTop = new Array(info.column).fill(0);
-  
+
       const getMinTop = (arr) => {
         let min = arr[0], index = 0;
         for (let i = 1; i < arr.length; i++) {
@@ -106,9 +150,9 @@
         }
         return { min, index };
       };
-  
+
       const getMaxTop = (arr) => Math.max(...arr);
-  
+
       for (let i = 0; i < waterfall.children.length; i++) {
         const box = waterfall.children[i];
         const { min, index } = getMinTop(nextTop);
@@ -117,36 +161,32 @@
         nextTop[index] += box.offsetHeight + info.gap / 2;
         box.children[0].style.opacity = 1;
       }
-  
+
       waterfall.style.height = `${getMaxTop(nextTop)}px`;
     }
-  
-    // Manejo de clics en nav
+
     const nav = document.querySelector('.nav ul');
     nav.addEventListener('click', function (e) {
       if (e.target.tagName === 'LI') {
         document.querySelector('.nav ul li.active')?.classList.remove('active');
         e.target.classList.add('active');
-  
+
         const name = e.target.dataset.name;
-  
+
         if (name === 'zcy') {
-          creatImg('zcy', 9, '.webp');
+          creatImg('zcy', 17, '.webp');
           document.getElementById('mensaje-mascotas').style.display = 'block';
           document.getElementById('mensaje-amor').style.display = 'none';
         } else if (name === 'xl') {
-          creatImg('xl', 38, '.jpg');
+          creatImg('xl', 39, '.jpg');
           document.getElementById('mensaje-mascotas').style.display = 'none';
           document.getElementById('mensaje-amor').style.display = 'block';
         }
       }
     });
-  
-    // Activar el primer nav al cargar
+
     document.querySelector('.nav ul li.active')?.click();
-  
     window.addEventListener('resize', layout);
   </script>
 </body>
-
 </html>
